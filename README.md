@@ -37,11 +37,6 @@ This repository contains the source code for a web application designed specific
      - Admins can manage user accounts, monitor discussions, review and approve projects/publications, and oversee course details.
      - They can perform actions such as user moderation, content moderation, and site configuration.
 
-### Additional Features
-
-- **User Profiles**: Users (students and faculty) have personalized profiles to manage their submissions and contributions.
-- **Notifications**: System-generated notifications for important updates, approvals, or messages.
-- **Search and Filter**: Users can search for specific projects, publications, or courses based on criteria.
 
 
 ## Tech Stack
