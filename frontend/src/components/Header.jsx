@@ -69,7 +69,7 @@ export default function Header() {
       <div className="top">
         <div className="row cont">
           <div className="col-md-9" style={{ color: "#555555" }} id="head">
-            <h3>Deep Learning for Reasearch and Development</h3>
+            <h3>Deep Learning for Research and Development</h3>
             <h5>Learn research and apply</h5>
           </div>
           <div className="col-md-3">

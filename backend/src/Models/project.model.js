@@ -29,6 +29,10 @@ const projectSchema = new mongoose.Schema({
     approved : {
         type : Boolean,
         default : false
+    },
+    link:{
+        type : String,
+        default : "",
     }
 })
 

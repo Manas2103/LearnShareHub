@@ -61,7 +61,6 @@ export default function AddCourse() {
   return (
     <div className="col-md-10 right">
       {loading ? (<div className="home">Loading....</div>):(<div className="home">Add Course</div>)}
-      <div className="home">Add Course</div>
       <div className="signup">
         <form action="" className="form" onSubmit={handleSubmit}>
           <label style={labeStyle} htmlFor="courseId">

@@ -6,6 +6,7 @@ import { Project } from "../Models/project.model.js"
 
 const handleProject = asyncHandler(async (req, res) => {
     const {title, mentor, description} = req.body
+    const {link} = req.body
     const member = req.user.username
     const image = req.user.image
 
@@ -51,13 +52,13 @@ const handleProject = asyncHandler(async (req, res) => {
         member,
         description,
         mentorImage : mentorImage?.url || "",
-        memberImage : image
+        memberImage : image,
+        link
     })
 
     if(!project){
         throw new ApiError(500, "Error while creating new Project")
     }
-
 
     return res
     .status(200)
@@ -89,8 +90,6 @@ const getAllProject = asyncHandler(async(req, res) => {
 })
 
 const deleteProject = asyncHandler(async(req,res) => {
-
-   
 
     const {title} = req.body;
 

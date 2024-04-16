@@ -23,7 +23,8 @@ export default function AddProject() {
   const [data, setData] = useState({
     title: "",
     mentor: "",
-    description: ""
+    description: "",
+    gitHub : ""
   });
 
   const navigate = useNavigate()
@@ -37,6 +38,8 @@ export default function AddProject() {
     formData.append('mentor', data.mentor);
     formData.append('description', data.description);
     formData.append('mentorImage', mentorImage)
+    formData.append('link', data.gitHub)
+    
 
     try {
       const response = await axios.post("/api/v1/project/add-project", formData);
@@ -97,6 +100,18 @@ export default function AddProject() {
             id="description"
             name="description"
             placeholder="Enter Description"
+            onChange={(e) => setData({...data, [e.target.name] : e.target.value})}
+          />
+
+          <label style={labeStyle} htmlFor="description">
+            Drive or GitHub Link
+          </label>
+          <input
+            style={inputStyle}
+            type="text"
+            id="gitHub"
+            name="gitHub"
+            placeholder="Enter Drive or GitHub Link"
             onChange={(e) => setData({...data, [e.target.name] : e.target.value})}
           />
 

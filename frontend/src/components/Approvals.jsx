@@ -139,6 +139,7 @@ export default function Approvals() {
                 <th>Description</th>
                 <th>Member</th>
                 <th>Mentor</th>
+                <th>Link</th>
                 <th>Approval</th>
               </tr>
             </thead>
@@ -151,6 +152,7 @@ export default function Approvals() {
                     <td>{project.description}</td>
                     <td>{project.member}</td>
                     <td>{project.mentor}</td>
+                    <td><Link style={{color : "lightBlue"}} target="_blank" to={project.link}>Drive or Github</Link></td>
                     <td>
                       {user.email === "pkroynitp@gmail.com" ? (
                         <div>
