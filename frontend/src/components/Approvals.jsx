@@ -152,7 +152,19 @@ export default function Approvals() {
                     <td>{project.description}</td>
                     <td>{project.member}</td>
                     <td>{project.mentor}</td>
-                    <td><Link style={{color : "lightBlue"}} target="_blank" to={project.link}>Drive or Github</Link></td>
+                    <td>
+                      {project.link.length > 0 ? (
+                        <Link
+                          style={{ color: "lightBlue" }}
+                          target="_blank"
+                          to={project.link}
+                        >
+                          Drive or Github
+                        </Link>
+                      ) : (
+                        <p>No Link</p>
+                      )}
+                    </td>
                     <td>
                       {user.email === "pkroynitp@gmail.com" ? (
                         <div>
