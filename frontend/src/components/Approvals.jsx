@@ -112,7 +112,7 @@ export default function Approvals() {
         alert(
           `User ${username} is not approved by you and hence deleted successfully`
         );
-        navigate("/publications");
+        navigate("/members");
       }
     } catch (error) {
       console.log(error);
