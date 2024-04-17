@@ -22,7 +22,7 @@ export default function CurrUser() {
   };
 
   const handleDelete = async (e) => {
-    const check = parseInt(prompt("Are you sure you want to delete acoout 1/0"));
+    const check = parseInt(prompt("Are you sure you want to delete acount 1/0"));
     if(check === 1){
       e.preventDefault();
   
@@ -77,6 +77,12 @@ export default function CurrUser() {
             <tr>
               <th>Research Area</th>
               <td>{user.researchArea}</td>
+            </tr>
+            <tr>
+              <th>Approval</th>
+              <td>{user.approved ? (<p>Done</p>) : (<p style={{
+                color : "yellow"
+              }}>Pending</p>)}</td>
             </tr>
           </table>
         </div>

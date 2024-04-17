@@ -203,10 +203,10 @@ export default function RightBar() {
         <div className="students">
           <div className="stud">
             <h5>What Our Students Have to Say</h5>
-            {isLoggedIn ? (
+            {(isLoggedIn && user.approved) ? (
               <Link to="/opinion">Add Opinion</Link>
             ) : (
-              <p>You need to login to add opinion</p>
+              <p>You need to login or approved to add opinion</p>
             )}
           </div>
           <div className="std-box">
@@ -259,7 +259,7 @@ export default function RightBar() {
           className="students"
           style={{ textAlign: "center", margin: "100px 5px" }}
         >
-          <h5>You have to be Logged In to see Student Opinion</h5>
+          <h5>You have to be Logged In or approved to add Student Opinion</h5>
         </div>
       )}
     </div>
