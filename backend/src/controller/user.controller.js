@@ -118,10 +118,14 @@ const loginUser = asyncHandler(async (req, res, next)=> {
     
         //cookies
     
+        const expiryDate = new Date();
+        expiryDate.setDate(expiryDate.getDate() + 3);
+
         const option = {
-            httpOnly : true,
-            secure : true
-        }
+            httpOnly: true,
+            secure: true,
+            expires: expiryDate // Set the expiry date 3 days from now
+        };
     
         return res
         .status(200)
