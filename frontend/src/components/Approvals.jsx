@@ -82,18 +82,18 @@ export default function Approvals() {
     }
   };
 
-  const handleApprovalUser = async (title) => {
+  const handleApprovalUser = async (username) => {
     try {
       const response = await axios.post("/api/v1/users/approve-user", {
-        title,
+        username,
       });
       if (response.status === 200) {
         allUsers.map((user) => {
-          if (user.title === title) {
+          if (user.username === username) {
             user.approved = true;
           }
         });
-        alert(`Journal ${title} is approved by you`);
+        alert(`User ${username} is approved by you`);
         navigate("/approval");
       }
     } catch (error) {
@@ -101,21 +101,22 @@ export default function Approvals() {
     }
   };
 
-  const handleDeleteUser = async (title) => {
+  const handleDeleteUser = async (username) => {
     try {
-      const response = await axios.post("/api/v1/users/delete-user", {
-        title,
+      const response = await axios.post("/api/v1/users/delete-user-on-demand", {
+        username,
       });
 
       if (response.status === 200) {
-        setJournals(journals.filter((journal) => !journal.title === title));
+        setAllUser(allUsers.filter((user) => !user.username === username));
         alert(
-          `Journal ${title} is not approved by you and hence, deleted successfully`
+          `User ${username} is not approved by you and hence deleted successfully`
         );
         navigate("/publications");
       }
     } catch (error) {
       console.log(error);
+      alert("Error while deleting an user")
     }
   };
 
@@ -398,13 +399,13 @@ export default function Approvals() {
                       {user.email === "pkroynitp@gmail.com" ? (
                         <div>
                           {!project.approved ? (
-                            <div key={project.title}>
+                            <div key={project.username}>
                               <Link
                                 style={{
                                   margin: "0px 4px",
                                 }}
                                 onClick={() =>
-                                  handleApprovalUser(project.title)
+                                  handleApprovalUser(project.username)
                                 }
                               >
                                 &#9989;
@@ -414,7 +415,7 @@ export default function Approvals() {
                                   margin: "0px 4px",
                                 }}
                                 onClick={() =>
-                                  handleDeleteUser(project.title)
+                                  handleDeleteUser(project.username)
                                 }
                               >
                                 &#10062;

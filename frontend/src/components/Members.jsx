@@ -13,7 +13,7 @@ export default function Members() {
       try {
         const response = await axios.post("/api/v1/users/get-all-users");
         if (response.status === 200) {
-          const fetchedUsers = response.data.data.users;
+          const fetchedUsers = response.data.data;
           console.log("fetchedUsers", response.data.data.users);
           setUsers(fetchedUsers);
 
@@ -25,7 +25,8 @@ export default function Members() {
       }
     })();
   }, []);
-  if (users.length > 0) {
+
+  if (users?.length > 0) {
     for (let i = 0; i < users.length; i++) {
       if (users[i].faculty == true) {
         teachers.push(users[i]);

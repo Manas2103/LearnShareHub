@@ -242,7 +242,7 @@ const getApprovalUser = asyncHandler(async(req, res) => {
     }
 
     const user = await User.findOneAndUpdate(
-        {title},
+        {username},
         {
             $set : {
                 approved : true
@@ -253,7 +253,7 @@ const getApprovalUser = asyncHandler(async(req, res) => {
         }
     );
 
-    if(!project){
+    if(!user){
         throw new ApiError(500, "Error while approving User at server")
     }
 
