@@ -37,6 +37,10 @@ const userSchema = new mongoose.Schema({
     researchArea : {
         type : String,
         default : "N/A"
+    },
+    approved : {
+        type : Boolean,
+        default : false
     }
 },
 {

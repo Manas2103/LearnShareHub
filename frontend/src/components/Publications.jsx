@@ -101,12 +101,12 @@ export default function Publications() {
           </table>
         </div>
       </div>
-      {isLoggedIn && user.email === "pkroynitp@gmail.com" ? (
+      {(isLoggedIn && user.approved) || user.email === "pkroynitp@gmail.com" ? (
         <div className="add-project">
           <InputBtn children={"Add Publication"} path={"/addPublication"} />
         </div>
       ) : (
-        <div className="add-project">Only admin can Add Publication</div>
+        <div className="add-project">Approved users can Add Publication</div>
       )}
     </div>
   );

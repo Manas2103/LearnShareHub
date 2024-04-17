@@ -186,7 +186,7 @@ const getAllUsers = asyncHandler(async (req, res) => {
         .json(
             new ApiResponse(
                 200,
-                {users},
+                users,
                 "All Users fetched successfully"
             )
         )

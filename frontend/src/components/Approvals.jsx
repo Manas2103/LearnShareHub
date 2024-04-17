@@ -6,6 +6,7 @@ export default function Approvals() {
   const [projects, setProjects] = useState([]);
   const navigate = useNavigate();
   const [journals, setJournals] = useState([]);
+  const [allUsers, setAllUser] = useState([]);
 
   const handleApprovalProject = async (title) => {
     try {
@@ -81,6 +82,43 @@ export default function Approvals() {
     }
   };
 
+  const handleApprovalUser = async (title) => {
+    try {
+      const response = await axios.post("/api/v1/users/approve-user", {
+        title,
+      });
+      if (response.status === 200) {
+        allUsers.map((user) => {
+          if (user.title === title) {
+            user.approved = true;
+          }
+        });
+        alert(`Journal ${title} is approved by you`);
+        navigate("/approval");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleDeleteUser = async (title) => {
+    try {
+      const response = await axios.post("/api/v1/users/delete-user", {
+        title,
+      });
+
+      if (response.status === 200) {
+        setJournals(journals.filter((journal) => !journal.title === title));
+        alert(
+          `Journal ${title} is not approved by you and hence, deleted successfully`
+        );
+        navigate("/publications");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   useEffect(() => {
     (async () => {
       try {
@@ -104,6 +142,21 @@ export default function Approvals() {
           const fetchedJournals = response2.data.data.allJournals;
           console.log("fetchedJournals", fetchedJournals);
           setJournals(fetchedJournals);
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    })();
+  }, []);
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const response2 = await axios.post("/api/v1/users/get-all-users");
+        if (response2.status === 200) {
+          const Users = response2.data.data;
+          console.log("Users", Users);
+          setAllUser(Users);
         }
       } catch (error) {
         console.log(error);
@@ -310,6 +363,99 @@ export default function Approvals() {
           </table>
         </div>
       </div>
+
+      <h3
+        style={{
+          margin: "10px 20px",
+        }}
+      >
+        User Approvals
+      </h3>
+
+      <div className="members">
+        <div className="facultyData">
+          <table className="tabledata">
+            <thead>
+              <tr>
+                <th>Sr.No.</th>
+                <th>Username</th>
+                <th>Institute</th>
+                <th>Course/Designation</th>
+                <th>Faculty</th>
+                <th>Approval</th>
+              </tr>
+            </thead>
+            <tbody>
+              {allUsers.length > 0 ? (
+                allUsers.map((project, index) => (
+                  <tr key={index}>
+                    <td>{index + 1}</td>
+                    <td>{project.username.toUpperCase()}</td>
+                    <td>{project.institute}</td>
+                    <td>{project.descourse}</td>
+                    <td>{project.faculty ? (<p>Yes</p>):(<p>No</p>)}</td>
+                    <td>
+                      {user.email === "pkroynitp@gmail.com" ? (
+                        <div>
+                          {!project.approved ? (
+                            <div key={project.title}>
+                              <Link
+                                style={{
+                                  margin: "0px 4px",
+                                }}
+                                onClick={() =>
+                                  handleApprovalUser(project.title)
+                                }
+                              >
+                                &#9989;
+                              </Link>
+                              <Link
+                                style={{
+                                  margin: "0px 4px",
+                                }}
+                                onClick={() =>
+                                  handleDeleteUser(project.title)
+                                }
+                              >
+                                &#10062;
+                              </Link>
+                            </div>
+                          ) : (
+                            <div>Done</div>
+                          )}
+                        </div>
+                      ) : (
+                        <div>
+                          {project.approved ? (
+                            <div
+                              style={{
+                                color: "green",
+                              }}
+                            >
+                              Done
+                            </div>
+                          ) : (
+                            <div
+                              style={{
+                                color: "yellow",
+                              }}
+                            >
+                              Pending
+                            </div>
+                          )}
+                        </div>
+                      )}
+                    </td>
+                  </tr>
+                ))
+              ) : (
+                <div>No rows to show</div>
+              )}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
     </div>
   );
 }

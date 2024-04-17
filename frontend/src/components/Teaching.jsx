@@ -57,7 +57,7 @@ export default function Teaching() {
 
       {courses.length > 0 ? (
         courses.map((ele, index) => (
-          <div className="teaching-box">
+          <div className="teaching-box" key={index+1}>
             
               <h4 className="title-course">
                 {ele.courseId} : {ele.courseName}
@@ -87,11 +87,11 @@ export default function Teaching() {
               </table>
                 <h5 className="title-course">Syllabus</h5>
                 <div className="course-image">
-                  <img src={ele.syllabus}  alt="syllabus" height={900} width={900} />
+                  <img src={ele.syllabus}  alt="syllabus" height={800} width={800} />
                 </div>
                 {user?.email === "pkroynitp@gmail.com" ? (<div>
                 <i onClick={() => handleDelete(ele.courseId)} class="fa fa-trash-o" style={{
-                  fontSize:"48px",
+                  fontSize:"38px",
                   color:"red"}}></i>
                 </div>) : (<div></div>)}
                 
@@ -104,13 +104,13 @@ export default function Teaching() {
         </div>
       )}
 
-      {(isLoggedIn && user.faculty) ? (
+      {(isLoggedIn && user.faculty && (user.approved || user.email === "pkroynitp@gmail.com")) ? (
         <div className="add-project">
           <InputBtn children={"Add Course"} path={"/addCourse"} />
         </div>
       ) : (
         <div className="add-project">
-          You have to be logged in as a faculty to Add Course
+          You have to be logged in as a faculty or approved to Add Course
         </div>
       )}
     </div>
