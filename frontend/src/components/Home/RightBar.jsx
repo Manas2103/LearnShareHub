@@ -203,7 +203,7 @@ export default function RightBar() {
         <div className="students">
           <div className="stud">
             <h5>What Our Students Have to Say</h5>
-            {(isLoggedIn && user.approved) ? (
+            {(isLoggedIn && user?.approved) ? (
               <Link to="/opinion">Add Opinion</Link>
             ) : (
               <p>You need to login or approved to add opinion</p>
