@@ -231,11 +231,77 @@ const getCurrentUser = asyncHandler(async (req, res) => {
     )
 })
 
+const getApprovalUser = asyncHandler(async(req, res) => {
+    if(!(req.user?.email === "pkroynitp@gmail.com")){
+        throw new ApiError(403, "You need to be admin")
+    }
+    const {username} = req.body;
+
+    if(!username){
+        throw new ApiError(404, "Username should be provided")
+    }
+
+    const user = await User.findOneAndUpdate(
+        {title},
+        {
+            $set : {
+                approved : true
+            }
+        },
+        {
+            new : true
+        }
+    );
+
+    if(!project){
+        throw new ApiError(500, "Error while approving User at server")
+    }
+
+    return res
+    .status(200)
+    .json(
+        new ApiResponse(
+            200,
+            user,
+            "User Approved successfully"
+        )
+    )
+})
+
+
+const deleteUserOnDemand = asyncHandler(async(req,res) => {
+
+    const {username} = req.body;
+
+    if(!username){
+        throw new ApiError(404, "title for deletion not provided")
+    }
+
+    try {
+        await User.findOneAndDelete({username})
+    
+        return res
+        .status(200)
+        .json(
+            new ApiResponse(
+                200,
+                {},
+                "User deleted successfully"
+            )
+        )
+    } catch (error) {
+        console.log(error)
+    }
+})
+
+
 export {
     registerUser,
     loginUser,
     logoutUser,
     getAllUsers,
     deleteUser,
-    getCurrentUser
+    getCurrentUser,
+    getApprovalUser,
+    deleteUserOnDemand
 }

@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { upload } from "../middleware/multer.middleware.js";
-import { deleteUser, getAllUsers, getCurrentUser, loginUser, logoutUser, registerUser } from "../controller/user.controller.js";
+import { deleteUser, deleteUserOnDemand, getAllUsers, getApprovalUser, getCurrentUser, loginUser, logoutUser, registerUser } from "../controller/user.controller.js";
 import { jwtVerify } from "../middleware/auth.middleware.js";
 
 const router = Router()
@@ -24,5 +24,7 @@ router.route("/login").post(loginUser)
 router.route("/delete-user").get(jwtVerify, deleteUser)
 router.route("/logout").post(jwtVerify, logoutUser)
 router.route("/get-current-user").post(jwtVerify, getCurrentUser)
+router.route("/approve-user").post(jwtVerify, getApprovalUser)
+router.route("/delete-user-on-demand").post(jwtVerify, deleteUserOnDemand)
 
 export default router
