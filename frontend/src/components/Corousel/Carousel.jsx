@@ -41,20 +41,20 @@ const Carousel = () => {
         <img src={researchImage} alt="Slide 1" className="carousel-image" />
         <div className="overlay-text">
           <strong>  
-            <h1>Research</h1>
+            <p>Research</p>
           </strong>
         </div>
       </div>
       <div className="carousel-item">
         <img src={learnImage} alt="Slide 2" className="carousel-image" />
         <div className="overlay-text">
-          <h1>Learn</h1>
+          <p>Learn</p>
         </div>
       </div>
       <div className="carousel-item">
         <img src={developImage} alt="Slide 3" className="carousel-image" />
         <div className="overlay-text">
-          <h1>Develop</h1>
+          <p>Develop</p>
         </div>
       </div>
       {/* Add more slides here */}

@@ -44,7 +44,6 @@ ul {
 
 
 .nav {
-  position: relative;
   font-weight: 550;
   padding:3px;
   display: flex;
@@ -59,11 +58,6 @@ li {
 a{
   color:white;
   text-decoration: none;
-}
-
-.cont{
-  position: sticky;
-  top: 0;
 }
 .content{
   margin-left:100px;
@@ -254,9 +248,10 @@ a{
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-  color: white;
-  color: orange;
+  color: rgb(245, 3, 3);
+  /* color: orange; */
   font-weight: bold;
+  font-size :80px;
 }
 
 .overlay-text h2 {
