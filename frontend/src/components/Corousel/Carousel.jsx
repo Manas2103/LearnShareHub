@@ -2,7 +2,7 @@ import React from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import researchImage from '../../assets/images/research.jpg';
+import researchImage from '../../assets/images/research.jpeg';
 import learnImage from '../../assets/images/learn.jpeg'
 import developImage from '../../assets/images/develop.jpeg'
 
