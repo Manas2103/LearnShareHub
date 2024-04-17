@@ -1,12 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../contexts/AuthContext.jsx";
 
 export default function Approvals() {
   const [projects, setProjects] = useState([]);
   const navigate = useNavigate();
   const [journals, setJournals] = useState([]);
   const [allUsers, setAllUser] = useState([]);
+  const { isLoggedIn, logoutUser } = useContext(AuthContext);
+  
 
   const handleApprovalProject = async (title) => {
     try {
@@ -109,6 +112,7 @@ export default function Approvals() {
 
       if (response.status === 200) {
         setAllUser(allUsers.filter((user) => !user.username === username));
+        logoutUser();
         alert(
           `User ${username} is not approved by you and hence deleted successfully`
         );
