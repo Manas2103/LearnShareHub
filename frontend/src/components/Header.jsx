@@ -118,7 +118,7 @@ export default function Header() {
                     }}
                     height={40}
                     width={40}
-                    src = {user?.image ? (user.image) : ("https://res.cloudinary.com/dptzi4pda/image/upload/v1712773036/vdglekm53t5fwfv95mgi.jpg")}
+                    src = {user ? (user.image) : ("https://res.cloudinary.com/dptzi4pda/image/upload/v1712773036/vdglekm53t5fwfv95mgi.jpg")}
                     // src="https://res.cloudinary.com/dptzi4pda/image/upload/v1712773036/vdglekm53t5fwfv95mgi.jpg"
                     alt="User"
                     onClick={() => navigate("/current-user")}

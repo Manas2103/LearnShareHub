@@ -20,6 +20,7 @@ const AuthProvider = ({children}) => {
     const logoutUser = () => {
         setisLoggedIn(false)
         localStorage.removeItem('isLoggedIn');
+        localStorage.removeItem("currUser")
     }
 
     return(

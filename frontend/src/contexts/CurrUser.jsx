@@ -13,7 +13,7 @@ export default function CurrUser() {
 
     if (response.status === 200) {
       logoutUser();
-      localStorage.removeItem("currUser");
+      // localStorage.removeItem("currUser");
       alert("User logged out");
       navigate("/");
     } else {
