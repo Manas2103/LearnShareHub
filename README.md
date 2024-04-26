@@ -62,3 +62,19 @@ Here are the technologies and tools used in this project:
   - Git & GitHub
   - VS Code
   - npm (Node Package Manager)
+
+## Commands
+
+### Commands to run frontend
+- cd frontend/
+- npm update
+- npm update --dev
+- npm run dev
+
+### Commands to run backend
+- cd backend/
+- npm update
+- npm update --dev
+- npm run dev
+
+### Create a enviroment file as required
