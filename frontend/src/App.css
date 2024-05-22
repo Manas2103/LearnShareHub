@@ -395,7 +395,7 @@ th{
 }
 
 .all-projects{
-  margin: 25px 15px;
+  margin: 10px 15px;
   background-color: #525253;
   border-radius: 7px;
   padding: 10px;
@@ -429,7 +429,7 @@ th{
 
 .project-box{
   border: 1px solid black;
-  margin: 15px 21px;
+  margin: 15px 15px;
   width: 45%;
   /* height: 35vh; */
   background-color: #2a2a2b;

@@ -69,7 +69,7 @@ export default function Projects() {
       <div className="row all-projects">
         {projects.length > 0 ? (
           projects.map((ele, index) => (
-            <div className="col-md-6 project-box">
+            <div className="col-md-5 project-box">
             {true ? (
                 <div  key={index + 1}>
                 <div>
