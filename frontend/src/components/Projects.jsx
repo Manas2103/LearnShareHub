@@ -152,7 +152,7 @@ export default function Projects() {
         )}
       </div>
 
-      {isLoggedIn || (user.approved || user.email === "pkroynitp@gmail.com") ? (
+      {isLoggedIn && (user.approved || user.email === "pkroynitp@gmail.com") ? (
         <div className="add-project">
           <InputBtn children={"Add Project"} path={"/addProject"} />
         </div>
