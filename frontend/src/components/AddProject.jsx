@@ -42,7 +42,7 @@ export default function AddProject() {
     
 
     try {
-      const response = await axios.post("/api/v1/project/add-project", formData);
+      const response = await axios.post("https://learnsharehub-1.onrender.com/api/v1/project/add-project", formData);
   
       if(response.status === 200){
 

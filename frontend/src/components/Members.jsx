@@ -11,7 +11,7 @@ export default function Members() {
   useEffect(() => {
     (async () => {
       try {
-        const response = await axios.post("/api/v1/users/get-all-users");
+        const response = await axios.post("https://learnsharehub-1.onrender.com/api/v1/users/get-all-users");
         if (response.status === 200) {
           const fetchedUsers = response.data.data;
           console.log("fetchedUsers", response.data.data.users);

@@ -10,7 +10,7 @@ export default function Teaching() {
   useEffect(() => {
     (async () => {
       try {
-        const response = await axios.post("/api/v1/course/get-all-course");
+        const response = await axios.post("https://learnsharehub-1.onrender.com/api/v1/course/get-all-course");
         if (response.status === 200) {
           const fetchedCourses = response.data.data.allCourse;
           console.log("fetchedCourses", fetchedCourses);
@@ -33,7 +33,7 @@ export default function Teaching() {
     const sure = parseInt(prompt("Are sure you want to delete ??(1/0)"));
     if(sure){
       try {
-        const response = await axios.post("/api/v1/course/delete-course", {
+        const response = await axios.post("https://learnsharehub-1.onrender.com/api/v1/course/delete-course", {
           courseId,
         });
   
@@ -104,7 +104,7 @@ export default function Teaching() {
         </div>
       )}
 
-      {(isLoggedIn && user.faculty && (user.approved || user.email === "pkroynitp@gmail.com")) ? (
+      {(isLoggedIn && user?.faculty && (user?.approved || user?.email === "pkroynitp@gmail.com")) ? (
         <div className="add-project">
           <InputBtn children={"Add Course"} path={"/addCourse"} />
         </div>

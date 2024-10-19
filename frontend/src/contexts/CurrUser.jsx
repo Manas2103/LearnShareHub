@@ -9,7 +9,7 @@ export default function CurrUser() {
   const { isLoggedIn, logoutUser } = useContext(AuthContext);
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await axios.post("/api/v1/users/logout");
+    const response = await axios.post("https://learnsharehub-1.onrender.com/api/v1/users/logout");
 
     if (response.status === 200) {
       logoutUser();
@@ -26,7 +26,7 @@ export default function CurrUser() {
     if(check === 1){
       e.preventDefault();
   
-      const response = await axios.get("/api/v1/users/delete-user");
+      const response = await axios.get("https://learnsharehub-1.onrender.com/api/v1/users/delete-user");
   
       if (response.status === 200) {
         logoutUser();
@@ -44,7 +44,14 @@ export default function CurrUser() {
   let user;
   const currUser = localStorage.getItem("currUser")
   if(currUser){
-    user = JSON.parse(currUser);
+    if (currUser) {
+      try {
+        user = JSON.parse(currUser);
+        // setCurrentUser(user)
+      } catch (error) {
+        console.error("Invalid JSON:", error);
+      }
+    }
     // setCurrentUser(user)
   }
 

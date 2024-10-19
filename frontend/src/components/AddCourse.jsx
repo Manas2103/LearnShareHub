@@ -41,7 +41,7 @@ export default function AddCourse() {
 
     try {
       setLoading(true)
-      const response = await axios.post("/api/v1/course/add-course", formData);
+      const response = await axios.post("https://learnsharehub-1.onrender.com/api/v1/course/add-course", formData);
       if (response.status === 200) {
         setLoading(false);
         alert("Course saved");

@@ -13,7 +13,7 @@ export default function Approvals() {
 
   const handleApprovalProject = async (title) => {
     try {
-      const response = await axios.post("/api/v1/project/approve-project", {
+      const response = await axios.post("https://learnsharehub-1.onrender.com/api/v1/project/approve-project", {
         title,
       });
       if (response.status === 200) {
@@ -32,7 +32,7 @@ export default function Approvals() {
 
   const handleDeleteProject = async (title) => {
     try {
-      const response = await axios.post("/api/v1/project/delete-project", {
+      const response = await axios.post("https://learnsharehub-1.onrender.com/api/v1/project/delete-project", {
         title,
       });
 
@@ -50,7 +50,7 @@ export default function Approvals() {
 
   const handleApprovalJournal = async (title) => {
     try {
-      const response = await axios.post("/api/v1/journal/approve-journal", {
+      const response = await axios.post("https://learnsharehub-1.onrender.com/api/v1/journal/approve-journal", {
         title,
       });
       if (response.status === 200) {
@@ -69,7 +69,7 @@ export default function Approvals() {
 
   const handleDeleteJournal = async (title) => {
     try {
-      const response = await axios.post("/api/v1/journal/delete-journal", {
+      const response = await axios.post("https://learnsharehub-1.onrender.com/api/v1/journal/delete-journal", {
         title,
       });
 
@@ -87,7 +87,7 @@ export default function Approvals() {
 
   const handleApprovalUser = async (username) => {
     try {
-      const response = await axios.post("/api/v1/users/approve-user", {
+      const response = await axios.post("https://learnsharehub-1.onrender.com/api/v1/users/approve-user", {
         username,
       });
       if (response.status === 200) {
@@ -106,7 +106,7 @@ export default function Approvals() {
 
   const handleDeleteUser = async (username) => {
     try {
-      const response = await axios.post("/api/v1/users/delete-user-on-demand", {
+      const response = await axios.post("https://learnsharehub-1.onrender.com/api/v1/users/delete-user-on-demand", {
         username,
       });
 
@@ -127,7 +127,7 @@ export default function Approvals() {
   useEffect(() => {
     (async () => {
       try {
-        const response = await axios.post("/api/v1/project/get-all-project");
+        const response = await axios.post("https://learnsharehub-1.onrender.com/api/v1/project/get-all-project");
         if (response.status === 200) {
           const fetchedProjects = response.data.data.allProject;
           console.log("fetchedProjects", fetchedProjects);
@@ -142,7 +142,7 @@ export default function Approvals() {
   useEffect(() => {
     (async () => {
       try {
-        const response2 = await axios.post("/api/v1/journal/get-all-journal");
+        const response2 = await axios.post("https://learnsharehub-1.onrender.com/api/v1/journal/get-all-journal");
         if (response2.status === 200) {
           const fetchedJournals = response2.data.data.allJournals;
           console.log("fetchedJournals", fetchedJournals);
@@ -157,7 +157,7 @@ export default function Approvals() {
   useEffect(() => {
     (async () => {
       try {
-        const response2 = await axios.post("/api/v1/users/get-all-users");
+        const response2 = await axios.post("https://learnsharehub-1.onrender.com/api/v1/users/get-all-users");
         if (response2.status === 200) {
           const Users = response2.data.data;
           console.log("Users", Users);

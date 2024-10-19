@@ -10,7 +10,7 @@ export default function Header() {
   const { isLoggedIn, logoutUser } = useContext(AuthContext);
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await axios.post("/api/v1/users/logout");
+    const response = await axios.post("https://learnsharehub-1.onrender.com/api/v1/users/logout");
 
     if (response.status === 200) {
       logoutUser();
@@ -25,7 +25,7 @@ export default function Header() {
   const handleDelete = async (e) => {
     e.preventDefault();
 
-    const response = await axios.get("/api/v1/users/delete-user");
+    const response = await axios.get("https://learnsharehub-1.onrender.com/api/v1/users/delete-user");
 
     if (response.status === 200) {
       logoutUser();

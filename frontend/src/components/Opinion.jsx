@@ -38,7 +38,7 @@ export default function Opinion() {
     setLoading(true);
     e.preventDefault()
 
-    const response = await axios.post("/api/v1/opinion/add-opinion", formData)
+    const response = await axios.post("https://learnsharehub-1.onrender.com/api/v1/opinion/add-opinion", formData)
 
     if(response.status === 200){
       setLoading(true);

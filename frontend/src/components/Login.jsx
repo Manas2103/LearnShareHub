@@ -32,24 +32,15 @@ export default function Login() {
     e.preventDefault()
     setLoading(true);
     try {
-      const response = await axios.post("/api/v1/users/login", loginData)
+      const response = await axios.post("https://learnsharehub-1.onrender.com/api/v1/users/login", loginData)
   
       if(response.status === 200){
         setLoading(false)
         console.log("Logged In Successfully")
         loginUser()
         navigate("/home")
+        localStorage.setItem("currUser", JSON.stringify(response.data.user))
         alert("User Logged in Successfully")
-        try {
-          const responseUser = await axios.post("/api/v1/users/get-current-user")
-          console.log(responseUser);
-          if(responseUser.status === 200){
-            console.log("curr User", responseUser.data. data)
-            localStorage.setItem("currUser", JSON.stringify(responseUser.data.data))
-          }
-        } catch (error) {
-          console.log("Get current user error : ", error)
-        }
       }
       else{
         alert("error while logging in")

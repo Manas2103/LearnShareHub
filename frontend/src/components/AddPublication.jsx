@@ -31,7 +31,7 @@ export default function AddPublication() {
     setLoading(true)
     e.preventDefault();
     try {
-      const response = await axios.post("/api/v1/journal/add-journal", data);
+      const response = await axios.post("https://learnsharehub-1.onrender.com/api/v1/journal/add-journal", data);
       console.log(response);
       if(response.status === 200){
         setLoading(false)

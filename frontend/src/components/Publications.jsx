@@ -13,7 +13,7 @@ export default function Publications() {
   useEffect(() => {
     (async () => {
       try {
-        const response = await axios.post("/api/v1/journal/get-all-journal");
+        const response = await axios.post("https://learnsharehub-1.onrender.com/api/v1/journal/get-all-journal");
         if (response.status === 200) {
           const fetchedJournals = response.data.data.allJournals;
           console.log("fetchedJournals", fetchedJournals);
@@ -27,7 +27,7 @@ export default function Publications() {
 
   const handleDeleteJournal = async (title) => {
     try {
-      const response = await axios.post("/api/v1/journal/delete-journal", {
+      const response = await axios.post("https://learnsharehub-1.onrender.com/api/v1/journal/delete-journal", {
         title,
       });
 

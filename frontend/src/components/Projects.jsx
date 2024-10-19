@@ -18,7 +18,7 @@ export default function Projects() {
   useEffect(() => {
     (async () => {
       try {
-        const response = await axios.post("/api/v1/project/get-all-project");
+        const response = await axios.post("https://learnsharehub-1.onrender.com/api/v1/project/get-all-project");
         if (response.status === 200) {
           const fetchedProjects = response.data.data.allProject;
           console.log("fetchedProjects", fetchedProjects);
@@ -36,7 +36,7 @@ export default function Projects() {
     const sure = parseInt(prompt("Are sure you want to delete ??(1/0)"));
     if(sure){
       try {
-        const response = await axios.post("/api/v1/project/delete-project", {
+        const response = await axios.post("https://learnsharehub-1.onrender.com/api/v1/project/delete-project", {
           title,
         });
   
